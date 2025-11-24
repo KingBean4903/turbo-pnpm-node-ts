@@ -1,0 +1,6 @@
+{
+		"name": "@repo/vitest-config",
+		"devDependencies": {
+				"vitest": "^4.0.12"
+		}
+}

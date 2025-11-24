@@ -1,0 +1,37 @@
+import { MigrationBuilder , PgLiteral } from 'node-pg-migrate';
+
+export const shorthands: ColumnDefinitions | undefined = undefined;
+
+export async function up(pgm: MigrationBuilder): Promise<void> {
+
+	/*	pgm.createTable('flash_sale_items', {
+				id: { 
+						type: 'uuid', 
+						primaryKey: true, 
+						notNull: true, 
+						default: new PgLiteral('uuid_generate_v4()')		
+				},
+
+				product_id: {
+						type: 'text', unique: true, notNull: true
+				},
+				title: { type: 'text', unique: true, notNull: true },
+				category: { type: 'varchar(50)', notNull: true },
+				price: { type: 'decimal(12, 2)', notNull: true },
+				inventory: { type: 'integer', notNull: true,  },
+				reserved: { type: 'integer', notNull: true },
+				sale_start: { type: 'timestamp', notNull: true },
+				sale_end: { type: 'timestamp', notNull: true },
+				limit_per_customer: { type: 'integer', notNull: true },
+				created: { 
+						type: 'timestamp',
+						notNull: true,
+						default: pgm.func('current_timestamp')
+				}
+		});
+		*/
+}
+
+export async function down(pgm: MigrationBuilder): Promise<void> {}
+
+

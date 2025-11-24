@@ -5,8 +5,11 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**", "apps/*/dist/**"]
     },
+	"test": {
+		"dependsOn": ["^build"]
+	},
     "lint": {
       "dependsOn": ["^lint"]
     },
@@ -14,8 +17,33 @@
       "dependsOn": ["^check-types"]
     },
     "dev": {
+      "dependsOn": ["^dev"],
       "cache": false,
       "persistent": true
-    }
+    },
+
+	"docker:build": {
+		"dependsOn": ["^docker:build"]
+	},
+
+	"migrate:up": {
+		"dependsOn": ["^migrate:up"]
+	},
+
+	"docker:compose": {
+		"dependsOn": ["^docker:compose"]
+	},
+
+	"seed": {
+		"dependsOn": ["^seed"]
+	},
+
+	"run-seed": {
+		"dependsOn": ["^seed"]
+	},
+
+    "pipeline": {
+		"dependsOn": ["run-seed"]
+	}
   }
 }
